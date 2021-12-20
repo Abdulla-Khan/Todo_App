@@ -99,15 +99,11 @@ class _TaskState extends State<Task> {
             left: 20,
           ),
           Positioned(
-            child: TextButton(
-                onPressed: () => signout(),
-                child: Text(
-                  "LogOut",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold),
-                )),
+            child: FloatingActionButton(
+              backgroundColor: Colors.pinkAccent,
+              onPressed: () => signout(),
+              child: const Icon(Icons.logout_rounded),
+            ),
             top: 30,
             right: 10,
           ),
