@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:assingment/sign_up.dart';
 import 'package:assingment/task.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -19,12 +21,11 @@ class _HomePageState extends State<HomePage> {
 
     Future login() async {
       try {
-        UserCredential userCredential = await FirebaseAuth.instance
-            .signInWithEmailAndPassword(
-                email: email.text, password: password.text);
+        await FirebaseAuth.instance.signInWithEmailAndPassword(
+            email: email.text, password: password.text);
 
         Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (_) => Task()));
+            context, MaterialPageRoute(builder: (_) => const Task()));
         password.clear();
       } on FirebaseAuthException catch (e) {
         if (e.code == 'user-not-found') {
@@ -181,7 +182,7 @@ class _HomePageState extends State<HomePage> {
               child: TextButton(
                 onPressed: () {
                   Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (_) => SignUp()));
+                      .push(MaterialPageRoute(builder: (_) => const SignUp()));
                 },
                 child: const Center(
                   child: Text(

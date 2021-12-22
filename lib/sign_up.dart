@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:assingment/home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -16,13 +18,12 @@ class _SignUpState extends State<SignUp> {
     TextEditingController password = TextEditingController();
     Future sign() async {
       try {
-        UserCredential userCredential = await FirebaseAuth.instance
-            .createUserWithEmailAndPassword(
-                email: email.text, password: password.text);
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+            email: email.text, password: password.text);
         email.clear();
         password.clear();
         Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (_) => HomePage()));
+            context, MaterialPageRoute(builder: (_) => const HomePage()));
       } on FirebaseAuthException catch (e) {
         if (e.code == 'weak-password') {
           print('The password provided is too weak.');
@@ -234,7 +235,7 @@ class _SignUpState extends State<SignUp> {
                                 onTap: () => Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (_) => HomePage())),
+                                        builder: (_) => const HomePage())),
                                 child: const Text(
                                   'Login',
                                   style: TextStyle(

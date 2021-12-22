@@ -44,7 +44,7 @@ class _TaskState extends State<Task> {
               children: [
                 TextField(
                   decoration: InputDecoration(
-                      label: Text("Add Task"),
+                      label: const Text("Add Task"),
                       hintText: "Anything",
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
@@ -139,8 +139,8 @@ class _TaskState extends State<Task> {
 
                             if (snapshot.connectionState ==
                                 ConnectionState.waiting) {
-                              return Center(
-                                  child: const Text(
+                              return const Center(
+                                  child: Text(
                                 "Loading",
                                 style: TextStyle(
                                     fontSize: 24, fontWeight: FontWeight.bold),
@@ -172,8 +172,8 @@ class _TaskState extends State<Task> {
                                               children: [
                                                 TextField(
                                                   decoration: InputDecoration(
-                                                      label:
-                                                          Text("Edit Existing"),
+                                                      label: const Text(
+                                                          "Edit Existing"),
                                                       hintText: "Edit",
                                                       border: OutlineInputBorder(
                                                           borderRadius:
@@ -186,7 +186,7 @@ class _TaskState extends State<Task> {
                                                   autofocus: true,
                                                   controller: taskCont,
                                                 ),
-                                                SizedBox(
+                                                const SizedBox(
                                                   height: 10,
                                                 ),
                                                 Column(
